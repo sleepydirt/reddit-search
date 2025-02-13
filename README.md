@@ -11,17 +11,17 @@ A live demo is available on [Vercel](https://reddit-search-blond.vercel.app/).
 If you wish to run locally, first clone this repository:
 
 ```
-$ git clone https://github.com/sleepydirt/reddit-search
+git clone https://github.com/sleepydirt/reddit-search
 ```
 
-Set up a virtual environment with your favourite provider and install the required dependencies:
+Install the required dependencies:
 
 ```
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Run the Flask server:
 
 ```
-$ python app.py
+python app.py
 ```
