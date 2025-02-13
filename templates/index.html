@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reddit Search (w/ PullPush API)</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/static/main.css" />
+  </head>
+  <body class="bg-dark text-gray-100">
+    <section class="section">
+      <div class="container">
+        <h1 class="title text-red-300 text-center">Reddit Search</h1>
+        <form class="form-horizontal" id="searchForm">
+          <fieldset>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <label class="label text-xs text-gray-100" for="author"
+                    >Username</label
+                  >
+                  <div class="control">
+                    <input
+                      id="author"
+                      name="author"
+                      type="text"
+                      class="input"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <label class="label text-xs text-gray-100" for="subreddit"
+                    >Subreddit</label
+                  >
+                  <div class="control">
+                    <input
+                      id="subreddit"
+                      name="subreddit"
+                      type="text"
+                      placeholder="e.g. AskReddit"
+                      class="input"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <label class="label" for="kind">Search For</label>
+                  <div class="control is-expanded">
+                    <div class="select is-fullwidth">
+                      <select id="kind" name="kind" class="">
+                        <option value="submission">Posts</option>
+                        <option value="comment">Comments</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <label class="label" for="size">No. to return</label>
+                  <div class="control">
+                    <input
+                      id="size"
+                      name="size"
+                      type="text"
+                      placeholder="max: 100"
+                      class="input"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <label class="label" for="since">Since</label>
+                  <div class="control">
+                    <input
+                      id="since"
+                      name="since"
+                      type="datetime-local"
+                      class="input"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <label class="label" for="until">Until</label>
+                  <div class="control">
+                    <input
+                      id="until"
+                      name="until"
+                      type="datetime-local"
+                      class="input"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <label class="label" for="q">Search Input</label>
+                  <div class="control is-expanded">
+                    <input
+                      id="q"
+                      name="q"
+                      type="text"
+                      placeholder="Enter search keywords"
+                      class="input search-query"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded">
+                    <input
+                      type="submit"
+                      class="button is-danger is-fullwidth"
+                      value="Search"
+                      id="searchButton"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field is-horizontal"
+              id="loadingIndicator"
+              style="display: none"
+            >
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded">
+                    <progress
+                      class="progress is-small is-primary"
+                      max="100"
+                    ></progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <div id="apiInfo" class="has-text-centered"></div>
+        <div id="results" class="section"></div>
+      </div>
+    </section>
+
+    <script src="/static/main.js"></script>
+  </body>
+</html>
