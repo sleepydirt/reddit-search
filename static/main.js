@@ -58,11 +58,7 @@ document
 
         let contentHTML = ""; // Initialize contentHTML here
         data.forEach((item) => {
-          const title = item.title
-            ? item.title
-            : item.link_title
-            ? item.link_title
-            : "No Title";
+          const title = `${item.title || item.id} | u/${item.author}`;
           const score = item.score || 0; //handle missing score
           const created_utc = new Date(
             item.created_utc * 1000
@@ -94,6 +90,11 @@ document
                         <div class="card-content">
                             <p class="title is-5">
                                 <a href="${url}" target="_blank">${title}</a>
+              ${
+                formData.kind === "comment"
+                  ? `<span class="is-size-6 has-text-grey"> (comment)</span>`
+                  : ""
+              }
                             </p>
                             <p class="subtitle is-6">Score: ${score} | Posted: ${created_utc}</p>
                             ${
